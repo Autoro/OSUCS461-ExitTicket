@@ -2,3 +2,5 @@
 .DS_Store
 *.pyc
 OSUCS461/Config/__init__.py
+.venv
+Logs
