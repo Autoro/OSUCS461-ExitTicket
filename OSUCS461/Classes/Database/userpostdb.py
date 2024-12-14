@@ -29,3 +29,9 @@ class UserPostDB:
         result = DB.GetBy(UserPostDB.table, field_params={"uuid": uuid, "user_uuid": user_uuid})
 
         return UserPost(**result)
+
+    @staticmethod
+    def delete(user_uuid: str, uuid: str) -> bool:
+        result = DB.DeleteWhere(UserPostDB.table, field_params={"uuid": uuid, "user_uuid": user_uuid})
+
+        return result["result"]

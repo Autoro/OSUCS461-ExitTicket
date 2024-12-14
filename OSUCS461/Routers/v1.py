@@ -77,3 +77,12 @@ async def create_user_post(user_id: str, post: UserPostWrite):
     except Exception as e:
         logger.error(e)
         raise HTTPException(status_code=500)
+
+@router.delete("/users/{user_id}/posts/{post_id}")
+async def delete_user_post(user_id: str, post_id: str):
+    try:
+        success = UserPostDB.delete(user_id, post_id)
+        return { "success": success }
+    except Exception as e:
+        logger.error(e)
+        raise HTTPException(status_code=500)
